@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Lala land</title>
+  <title>Tag: leetcode | Lala land</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Lala land">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/leetcode/index.html">
 <meta property="og:site_name" content="Lala land">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lala land">
@@ -145,43 +145,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2017-01-30-leetcode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/01/31/2017-01-30-leetcode/" class="archive-article-date">
+  	<time datetime="2017-01-31T05:17:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/31/2017-01-30-leetcode/">2017-01-30 leetcode</a>
+      <a class="archive-article-title" href="/2017/01/31/2017-01-30-leetcode/">2017-01-30 leetcode</a>
     </h1>
   
 
-        
-        <a href="/2017/01/31/2017-01-30-leetcode/" class="archive-article-date">
-  	<time datetime="2017-01-31T05:17:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="94-Binary-Tree-Inorder-Traversal"><a href="#94-Binary-Tree-Inorder-Traversal" class="headerlink" title="94. Binary Tree Inorder Traversal"></a>94. Binary Tree Inorder Traversal</h3><p>思想：recursive做法terry课上涉及，在此不表。iterative做法就是recursive的stack变种。首先从root开始，穷尽其左节点，进站，将左节点出站添加至list的同时，进站其右节点。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">        inorder(root, res);</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inorder</span><span class="params">(TreeNode root, List&lt;Integer&gt; list)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        inorder(root.left, list);</div><div class="line">        list.add(root.val);</div><div class="line">        inorder(root.right, list);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">	List&lt;Integer&gt; res = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</div><div class="line">	<span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> res;</div><div class="line">	</div><div class="line">	Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</div><div class="line">	TreeNode cur = root;</div><div class="line">	<span class="keyword">while</span> (cur != <span class="keyword">null</span> || !stack.isEmpty()) &#123; </div><div class="line">		<span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;<span class="comment">// Travel to each node's left child, till reach the left leaf</span></div><div class="line">			stack.push(cur);</div><div class="line">			cur = cur.left;				</div><div class="line">		&#125;		 </div><div class="line">		cur = stack.pop(); <span class="comment">// Backtrack to higher level node A</span></div><div class="line">		res.add(cur.val);  <span class="comment">// Add the node to the result list</span></div><div class="line">		cur = cur.right;   <span class="comment">// Switch to A'right branch</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="144-Binary-Tree-Preorder-Traversal"><a href="#144-Binary-Tree-Preorder-Traversal" class="headerlink" title="144. Binary Tree Preorder Traversal"></a>144. Binary Tree Preorder Traversal</h3><p>思想：recursive做法，对94题进行小小改动，中左右顺序便历。iterative做法，因为非中序便历，先出现的节点需要先加入，则不需要进行入站，只有对右子树进行入站处理即可。（Stack的精髓，先出现的东西到最后才加上），以此来寻找满足进站的元素。</p>
-<p>what other’s think: 先pop出元素，再 进站右节点，最后进站左节点。这个方法也不错，但有一些略多余。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">        &#125;</div><div class="line">        List&lt;Integer&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</div><div class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line">        stack.push(root);</div><div class="line">        </div><div class="line">        <span class="keyword">while</span> (stack.size() != <span class="number">0</span>) &#123;</div><div class="line">            TreeNode tmp = stack.pop();</div><div class="line">            <span class="keyword">while</span> (tmp != <span class="keyword">null</span>) &#123;</div><div class="line">                res.add(tmp.val);</div><div class="line">                <span class="keyword">if</span> (tmp.right != <span class="keyword">null</span>) &#123;</div><div class="line">                    stack.push(tmp.right);</div><div class="line">                &#125;</div><div class="line">                tmp = tmp.left;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="74-Search-a-2D-Matrix"><a href="#74-Search-a-2D-Matrix" class="headerlink" title="74. Search a 2D Matrix"></a>74. Search a 2D Matrix</h3><p>思想：对一个排好序的matrix,用最少时间找到的话，就是用两次binary search。首先确定在第几row找，再row里确定位置。虽然这么想的，但是代码总是出错，因为用binary search来找区间太麻烦了，会有很多corner case要处理。</p>
-<p>最聪明做法：将一个sorted matrix转化成一个sorted list。［方法应该挺常用］</p>
-<h3 id="129-Sum-Root-to-Leaf-Numbers"><a href="#129-Sum-Root-to-Leaf-Numbers" class="headerlink" title="129. Sum Root to Leaf Numbers"></a>129. Sum Root to Leaf Numbers</h3><p>思想：recursive分情况讨论。当node ==null,node为叶子节点，node有子节点三个情况讨论。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumNumbers</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> total(root, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">total</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// yezi</span></div><div class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.left == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> root.val + sum * <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> left = total(root.left, root.val + sum * <span class="number">10</span>);</div><div class="line">        <span class="keyword">int</span> right = total(root.right, root.val + sum * <span class="number">10</span>);</div><div class="line">        <span class="keyword">return</span> left + right;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,104 +184,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/31/2017-01-30-leetcode/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
-
-
-
   
-    <article id="post-skiing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/22/skiing/">Seven Springs 滑雪游</a>
-    </h1>
-  
-
-        
-        <a href="/2017/01/22/skiing/" class="archive-article-date">
-  	<time datetime="2017-01-22T05:55:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>2016-2017的冬天，是第一个严格意义上在北方度过的冬天。</p>
-<p>那我怎能不抓住机会，体验一下白色鸦片——滑雪的快感呢！</p>
-<p>从匹兹堡出发，开着租来的老爷款的丰田卡罗拉，一个半小时到了距匹兹堡东南约60英里的seven springs滑雪胜地（起名seven springs却连一个温泉都没有）。到达的时候已经是晚上5点了，下雪使路面结冰，车子下了高速几乎是一路滑到了雪场自带的hotel的门口。我们定的是two-day pass, 当天的4点后的晚场＋酒店住宿一晚＋第二天的全天。hotle的整提风格非常cozy，特别是看到了几个老爷爷老奶奶围着壁炉取暖的场景。然而此时我却想起库布里克的那部经典的闪灵，一个男人为了寻找写作灵感接下了在夏季看守滑雪胜地酒店的工作，带着妻儿来到与世隔绝、无法通车的旅店，最终发疯的故事。</p>
-<p>关掉脑洞，我们租好了雪具（乐文，烟酱，我选了双板，囧选了单板），要上场了！雪场虽然有灯，但是没有很多指示，和乐文直接上了一个缆车，没想到缆车直接上了山顶，看到白茫茫的山的下坡，没有一点滑雪经验的人仅仅靠着在youtube学到的梨形刹车法就冲了下去。结局当然是很凄惨的：和雪道边上的防护网纠缠在一起，不能自拔；一个大转弯的时候整个人空中起飞，以一个特技动作落地，双腿韧带被拉扯，滑雪板都飞了；穿一个滑雪板都要穿个十几分钟。。。囧作为唯一单板选手，滑着滑着雪板滑没了，后来一个热心匹兹堡大叔给他找了回来，听说他要请人家吃饭。两个多小时以后，终于一路摔到了山脚下，悬着的心落了地＝＝</p>
-<p>第二天在服务员号称拥有全餐厅最好的view的台子吃好早饭，就重新出发了！这次吸取了经验，坐缆车走了一条最初级的雪道，感觉明显棒很多！坡度不是很陡，渐渐体验到了滑雪飞翔的感觉。就算知道最后会摔在雪道上，但是摔之前的加速的刺激，有一种与雪山融为一体的享受。</p>
-<p>时间不早了，下午我们去有履带的新手村练习了一下八字绕弯，摆拍了几个视频，就挖车回家了。</p>
-<p>第三天，去enterprise还好车出来，走在匹兹堡冬日珍贵的太阳下，脑中响起一个声音：滑雪这么刺激的运动，就这么愉快的决定入坑了！</p>
-<p>some tips:</p>
-<ol>
-<li>全身冲锋衣和冲锋裤还是很有必要的，初学必然会摔很多跤，一身防水防风的衣裤保证的身体的干燥。</li>
-<li>手套一定不要用毛绒的那种，要买专业的滑雪手套。我抱有侥幸心理，手到最后都冻的失去了知觉。</li>
-<li>有条件的话，准备一副护目镜。白天太阳光照在白雪上产生的反射光很刺眼。不仅如此，当你不小心滑进了树林，它能起到保护你眼睛的作用。</li>
-</ol>
-<p><a href="https://www.youtube.com/watch?v=WTOuw1uMbzo&amp;app=desktop" target="_blank" rel="external">附上滑雪视频</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">travel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/22/skiing/">more >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
 
 
           </div>
@@ -312,10 +218,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
